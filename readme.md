@@ -9,7 +9,6 @@
 | API version:  | 1.41                      |
 | Go version:   | go1.16.12                 |
 | Git commit:   | e91ed57                   |
-| Built:        | Mon Dec 13 11:45:33 2021  |
 | OS/Arch:      | linux/amd64               |
 | Context:      | default                   |
 | Experimental: | true                      |
@@ -57,11 +56,11 @@
   - -t オプション [tty](https://qiita.com/toshihirock/items/22de12f99b5c40365369)
     - ターミナルにはログイン時にそれぞれ別のttyが割り当てられている
     - -t オプションを付けずに入るとコンテナに入ってはいそうだが、ホストに出力されていない
-    - psコマンド ターミナルごとに ps bashなどのプロセスが行われていてPIDは別の番号が割り当てられている
+      - psコマンドで確認が出来る ターミナルごとに ps bashなどのプロセスが行われていてPIDは別の番号が割り当てられている
   - name オプション コンテナに名前をつけれる
-  - d オプション バックグラウンドで実行(当分使わない)
   - p オプション [ポートフォワードする](https://qiita.com/tatsuo-iriyama/items/e4bf2404411343116e3e)
   - v オプション [コンテナ内に入るとわかるが/var/www/htmlディレクトリがありここのphpファイルを読み取るのでコンテナ外の現在のフォルダ${PWD}とリンクさせている](https://gray-code.com/blog/php-on-docker/)
+  - d オプション バックグラウンドで実行(当分使わない)
 - imageは読み取りコンテナ内でモジュールなどを追加したら に反映されて保存される
 ### apache だけportフォワードなしで立ち上げてみた
   - ooitanojohn@win10ohs00727:~/docker$ docker exec -it apache bash
@@ -81,11 +80,16 @@
   - コンテナ内では<html><body><h1>It works!</h1></body></html> が返ってくるが、コンテナ外ではooitanojohn@win10ohs00727:~/docker$ curl http://localhost:80
 curl: (7) Failed to connect to localhost port 80: Connection refused となる
 
-### docker imageからコンテナをビルドする
-- docker image build -t
-
+### Dockerfile からimageを作り、コンテナをビルドする
+- docker build -t
+### docker logs
+-fオプションをつけることでtail -fと同じように最新のログを追うことができます。
+$ docker logs -f eeed701d7b98
+1
+$ docker logs
 ### docker containerを実行する
 - #### [ここまでDockerfile 記述してみた]()
 
 
 ### [docker cmd 一覧 お気に入り](https://beyondjapan.com/blog/2016/08/docker-command-reverse-resolutions/#docker)
+

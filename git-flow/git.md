@@ -34,6 +34,25 @@ Now, start committing on your feature. When done, use:
      git flow feature finish lamp
 
 
+Switched to branch 'develop'
+Updating 33a135a..f520dad
+Fast-forward
+ git-flow/.gitconfig | 11 +++++++++++
+ git-flow/git.md     | 46 ++++++++++++++++++++++++++++++++++++++++++++++
+ git.md              | 19 -------------------
+ 3 files changed, 57 insertions(+), 19 deletions(-)
+ create mode 100644 git-flow/.gitconfig
+ create mode 100644 git-flow/git.md
+ delete mode 100644 git.md
+Deleted branch feature/lamp (was f520dad).
+
+Summary of actions:
+- The feature branch 'feature/lamp' was merged into 'develop'
+- Feature branch 'feature/lamp' has been locally deleted
+- You are now on branch 'develop'
+
+
+
      ・他の人により更新されたリモートのdevelopブランチを、ローカルのdevelopブランチに反映する場合（随時）
 
 $ git checkout develop
@@ -44,3 +63,6 @@ $ git flow feature publish sample
 ・他の人が開発したfeatureブランチ（sample）をローカルにプルする場合
 
 $ git flow feature track sample
+
+
+# ひとまず 安定環境master 開発develop local作業featureとかでいいかも
