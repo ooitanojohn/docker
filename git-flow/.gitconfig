@@ -1,0 +1,11 @@
+[alias]
+        cm=commit
+        st=status
+        br=branch
+        co=checkout
+        rm=remote
+        og=origin
+        mg=merge
+
+        flfest=flow feature start
+        flfefi=flow feature finish
